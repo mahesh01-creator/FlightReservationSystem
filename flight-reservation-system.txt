@@ -1,0 +1,77 @@
+flight-reservation-system
+│
+├── src
+│   └── main
+│       ├── java
+│       │   └── com.flight
+│       │
+│       │       ├── FlightReservationApplication.java
+│       │
+│       │       ├── controller
+│       │       │       AdminController.java
+│       │       │       UserController.java
+│       │       │       FlightController.java
+│       │       │       BookingController.java
+│       │       │       PaymentController.java
+│       │
+│       │       ├── service
+│       │       │       AdminService.java
+│       │       │       UserService.java
+│       │       │       FlightService.java
+│       │       │       BookingService.java
+│       │       │       PaymentService.java
+│       │
+│       │       ├── repository
+│       │       │       AdminRepository.java
+│       │       │       UserRepository.java
+│       │       │       FlightRepository.java
+│       │       │       BookingRepository.java
+│       │       │       PaymentRepository.java
+│       │
+│       │       ├── entity
+│       │       │       Admin.java
+│       │       │       User.java
+│       │       │       Flight.java
+│       │       │       Booking.java
+│       │       │       Passenger.java
+│       │       │       Payment.java
+│       │
+│       │       ├── dto
+│       │       │       BookingRequest.java
+│       │       │       PaymentRequest.java
+│       │       │       LoginRequest.java
+│       │
+│       │       ├── config
+│       │       │       SecurityConfig.java
+│       │
+│       │       └── util
+│       │               FareCalculator.java
+│       │               BookingUtil.java
+│
+│       └── resources
+│           │
+│           ├── templates
+│           │       index.html
+│           │       login.html
+│           │       signup.html
+│           │       search.html
+│           │       flights.html
+│           │       passenger.html
+│           │       payment.html
+│           │       confirmation.html
+│           │       mybookings.html
+│           │
+│           ├── static
+│           │       ├── css
+│           │       │       style.css
+│           │       │
+│           │       ├── js
+│           │       │       script.js
+│           │       │
+│           │       └── images
+│           │
+│           ├── application.properties
+│           │
+│           └── data.sql
+│
+└── pom.xml
