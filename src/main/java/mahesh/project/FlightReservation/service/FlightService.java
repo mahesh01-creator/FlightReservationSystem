@@ -43,19 +43,19 @@ public class FlightService {
         return savedFlight;
     }
 
-    // Get All Flights
+    
     public List<Flight> getAllFlights(){
 
         return repo.getAllFlights();
 
     }
 
-    // Search Flight
+    
     public List<Flight> searchFlight(String source,String destination,LocalDate date){
         return repo.searchFlight(source,destination,date);
     }
 
-    // Delete Flight
+  
     public void deleteFlight(int id){
 
         repo.deleteFlight(id);
