@@ -30,13 +30,11 @@ public class UserController {
     @Autowired
     private FlightService flightService;
 
-    // Open signup page
     @GetMapping("/signup")
     public String signupPage() {
         return "signup";
     }
 
-    // Handle signup form
     @PostMapping("/signup")
     public String signUp(
             @RequestParam("name") String name,
@@ -48,15 +46,13 @@ public class UserController {
         return "login";
     }
 
-    // Open login page
+    
     @GetMapping("/login")
     public String loginPage() 
     {
         return "login";
     }
     
-
-    // Handle login form
     @PostMapping("/login")
     public String login(@RequestParam("email") String email,
                         @RequestParam("password") String password,
@@ -66,7 +62,6 @@ public class UserController {
 
         User user = service.loginUser(email, password);
 
-        // ✅ CHECK FIRST
         if (user != null) 
         {
         	
@@ -128,7 +123,7 @@ public class UserController {
 
     		List<Booking> recent = service.getRecentBookings(email);
 
-    		// 🎯 Loyalty Logic
+    		
     		String status = "Silver";
     		if(totalSpent > 50000) status = "Gold";
     		if(totalSpent > 100000) status = "Platinum";
@@ -161,10 +156,7 @@ public class UserController {
 
     	        user.setName(name);
     	        user.setPhn(phone);
-
     	        service.updateUser(user);
-
-    	        // update session
     	        session.setAttribute("userName", name);
 
     	        return "redirect:/profile";
@@ -187,10 +179,8 @@ public class UserController {
 		{ 
     		String email = (String) session.getAttribute("userEmail");
 
-            // 🔥 get user from DB
             User user = service.getUserByEmail(email);
 
-            // ✅ check old password
             if(user.getPass().equals(oldPassword))
             {
                 user.setPass(newPassword);
