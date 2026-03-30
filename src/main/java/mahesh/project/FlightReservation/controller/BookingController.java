@@ -51,7 +51,7 @@ public class BookingController
     	
     	if (mail!=null) 
     	{
-    		// DO NOT SAVE YET ❌
+    		
 
             model.addAttribute("flightId", flightId);
             model.addAttribute("seatNumbers", seatNumbers);
@@ -59,7 +59,7 @@ public class BookingController
             model.addAttribute("ages", ages);
             model.addAttribute("genders", genders);
 
-            return "payment";   // 👉 go to payment page
+           
 		}
     	model.addAttribute("msg", "Please LoggedIn Yourself First!!!!!!!!");
 		return "login";
@@ -89,11 +89,11 @@ public class BookingController
     	String mail = (String) session.getAttribute("login");
     	if (mail!=null) 
     	{
-    		Flight flight = flightService.getFlightById(flightId);  // 🔥 ADD THIS
+    		Flight flight = flightService.getFlightById(flightId); 
 
             List<String> bookedSeats = service.getBookedSeats(flightId);
 
-            model.addAttribute("flight", flight);      // 🔥 IMPORTANT
+            model.addAttribute("flight", flight);    
             model.addAttribute("flightId", flightId);
             model.addAttribute("bookedSeats", bookedSeats);
 
@@ -140,7 +140,7 @@ public class BookingController
             HttpSession session
     ) {
 
-        String email = (String) session.getAttribute("userEmail");  // ✅ GET FROM SESSION
+        String email = (String) session.getAttribute("userEmail"); 
 
         List<Booking> bookings = new ArrayList<>();
         String pnr = "SB" + System.currentTimeMillis();
@@ -206,7 +206,7 @@ public class BookingController
     	String mail = (String) session.getAttribute("login");
     	if (mail!=null) 
     	{
-    		// ✅ Case 1: Coming from MyBookings (PNR present)
+    		
             if (pnr != null) {
                 List<Booking> bookings = service.getBookingsByPnr(pnr);
 
@@ -219,7 +219,7 @@ public class BookingController
                 session.setAttribute("pnr", pnr);
             }
 
-            // ✅ Case 2: Coming from Payment (session already set)
+
             return "ticket";
     	}
     	map.addAttribute("msg", "Please LoggedIn Yourself First!!!!!!!!");
@@ -239,14 +239,14 @@ public class BookingController
     	        Flight flight;
     	        double total;
 
-    	        // ✅ CASE 1: From MyBookings
+    	       
     	        if (pnr != null) {
     	            bookings = service.getBookingsByPnr(pnr);
     	            flight = bookings.get(0).getFlight();
     	            total = bookings.size() * flight.getPrice();
     	        }
 
-    	        // ✅ CASE 2: From Ticket Page (session)
+    	   
     	        else {
     	            bookings = (List<Booking>) session.getAttribute("bookings");
     	            flight = (Flight) session.getAttribute("flight");
