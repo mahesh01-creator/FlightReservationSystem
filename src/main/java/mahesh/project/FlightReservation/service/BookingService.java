@@ -21,8 +21,9 @@ public class BookingService {
     @Autowired
     private FlightRepository flightRepository;
 
-//    
-    public synchronized String bookFlight(int flightId, String seatNumber, Booking booking) {
+  
+    public synchronized String bookFlight(int flightId, String seatNumber, Booking booking) 
+	{
 
         Flight flight = flightRepository.getFlightById(flightId);
 
