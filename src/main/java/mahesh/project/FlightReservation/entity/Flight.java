@@ -28,9 +28,7 @@ public class Flight
     private String arrivalTime;
     private double price;
     private int seats;
-    
-//    @OneToMany(mappedBy = "flight")
-//    private List<Seat> seats;
+
     @OneToMany(mappedBy="flight")
     private List<Booking> bookings;
 }
