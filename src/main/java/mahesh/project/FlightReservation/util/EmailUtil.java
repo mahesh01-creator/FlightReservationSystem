@@ -32,17 +32,17 @@ public class EmailUtil {
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
             message.setSubject(subject);
 
-            // 🔥 PART 1: HTML BODY
+            //  HTML BODY
             MimeBodyPart messageBodyPart = new MimeBodyPart();
             messageBodyPart.setContent(htmlContent, "text/html");
 
-            // 🔥 PART 2: PDF ATTACHMENT
+            // PDF ATTACHMENT
             MimeBodyPart attachmentPart = new MimeBodyPart();
             DataSource source = new ByteArrayDataSource(pdfBytes, "application/pdf");
             attachmentPart.setDataHandler(new DataHandler(source));
             attachmentPart.setFileName("SkyBook-Ticket.pdf");
 
-            // 🔥 COMBINE BOTH
+            // COMBINE BOTH
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
             multipart.addBodyPart(attachmentPart);
