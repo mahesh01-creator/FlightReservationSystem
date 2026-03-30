@@ -32,7 +32,7 @@ public class TicketPDFGenerator {
 	        Font normal = new Font(Font.FontFamily.HELVETICA, 10);
 	        Font small = new Font(Font.FontFamily.HELVETICA, 9, Font.NORMAL, BaseColor.GRAY);
 
-	        // ================= HEADER =================
+	        // HEADER 
 	        PdfPTable header = new PdfPTable(2);
 	        header.setWidthPercentage(100);
 
@@ -55,7 +55,7 @@ public class TicketPDFGenerator {
 	        doc.add(new Chunk(line()));
 	        doc.add(space());
 
-	        // ================= ROUTE =================
+	        // ROUTE
 	        PdfPTable route = new PdfPTable(3);
 	        route.setWidthPercentage(100);
 
@@ -72,7 +72,7 @@ public class TicketPDFGenerator {
 	        doc.add(new Chunk(line()));
 	        doc.add(space());
 
-	        // ================= TIMING =================
+	        // TIMING
 	        PdfPTable time = new PdfPTable(2);
 	        time.setWidthPercentage(100);
 
@@ -81,7 +81,7 @@ public class TicketPDFGenerator {
 	        doc.add(time);
 	        doc.add(space());
 
-	        // ================= BOARDING INFO =================
+	        // BOARDING INFO
 	        PdfPTable info = new PdfPTable(4);
 	        info.setWidthPercentage(100);
 
@@ -93,7 +93,7 @@ public class TicketPDFGenerator {
 	        doc.add(info);
 	        doc.add(space());
 
-	        // ================= PASSENGER =================
+	        //PASSENGER
 	        Paragraph p = new Paragraph("PASSENGER", bold);
 	        p.setSpacingAfter(5);
 	        doc.add(p);
@@ -116,7 +116,7 @@ public class TicketPDFGenerator {
 	        doc.add(table);
 	        doc.add(space());
 
-	        // ================= QR + BOARDING =================
+	        // QR + BOARDING
 	        PdfPTable qrTable = new PdfPTable(2);
 	        qrTable.setWidthPercentage(100);
 
@@ -157,7 +157,7 @@ public class TicketPDFGenerator {
 	        
 	        doc.add(space());
 
-	        // ================= FOOTER =================
+	        // FOOTER
 	        Paragraph footer = new Paragraph(
 	                "This is a system generated ticket | No signature required\n" +
 	                "Arrive at airport 2 hours before departure | www.skybook.com",
@@ -174,7 +174,7 @@ public class TicketPDFGenerator {
 	    }
 	}
 
-    // 🔧 Helpers
+    //Helpers
     private static PdfPCell cell(String text) {
         PdfPCell c = new PdfPCell(new Phrase(text));
         c.setPadding(8);
@@ -246,7 +246,7 @@ public class TicketPDFGenerator {
         return c;
     }
     private static String getCode(String city) {
-        return city.substring(0, 3).toUpperCase(); // PNQ, DEL style
+        return city.substring(0, 3).toUpperCase();
     }
     private static LineSeparator line() {
         LineSeparator ls = new LineSeparator();
