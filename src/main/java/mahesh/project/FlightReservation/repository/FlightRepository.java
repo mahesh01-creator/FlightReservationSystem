@@ -43,7 +43,6 @@ public class FlightRepository {
 
     }
 
-    // ADD FLIGHT
     public Flight addFlight(Flight flight) {
 
         openConnection();
@@ -58,7 +57,6 @@ public class FlightRepository {
 
     }
 
-    // GET ALL FLIGHTS
     public List<Flight> getAllFlights() {
 
         openConnection();
@@ -77,7 +75,7 @@ public class FlightRepository {
 
     }
 
-    // SEARCH FLIGHT
+
     public List<Flight> searchFlight(String source, String destination, LocalDate date){
 
         openConnection();
@@ -99,7 +97,6 @@ public class FlightRepository {
         return flights;
     }
 
-    // DELETE FLIGHT
     public void deleteFlight(int id) {
 
         openConnection();
