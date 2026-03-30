@@ -24,13 +24,12 @@ public class FlightController {
     @Autowired
     private FlightService service;
 
-    // Open Add Flight Page
     @GetMapping("/addFlight")
     public String openAddFlightPage() {
         return "add-flight";
     }
 
-    // Handle Add Flight Form
+    
     @PostMapping("/addFlight")
     public String addFlight(
             @RequestParam("flightName") String flightName,
