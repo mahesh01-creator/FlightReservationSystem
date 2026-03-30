@@ -45,7 +45,6 @@ public class UserRepository
 	
 	 public User saveUser(String name, String email, String password, long phone) 
 	 {
-
 	        OpenConnection();
 	        transaction.begin();
 
@@ -62,9 +61,9 @@ public class UserRepository
 	        closeConnection();
 
 	        return user;
-	    }
-	 	public User loginUser(String email, String password) 
-	 	{
+	}
+ 	public User loginUser(String email, String password)	 	
+	{
 
 		    OpenConnection();
 		    transaction.begin();
@@ -84,9 +83,10 @@ public class UserRepository
 		    closeConnection();
 
 		    return user;
-		}
+	}
 	 	
-	 	public User findByEmail(String email) {
+	public User findByEmail(String email) 
+	{
 	        OpenConnection();
 	        transaction.begin();
 	        User user = null;
@@ -102,9 +102,10 @@ public class UserRepository
 	        transaction.commit();
 	        closeConnection();
 	        return user;
-	    }
+	}
 
-	    public void update(User user) {
+	public void update(User user) 
+	{
 	    	OpenConnection();
 	        transaction.begin();
 	        
@@ -113,9 +114,9 @@ public class UserRepository
 	        transaction.commit();
 	        closeConnection();
 	       
-	    }
-	 // Recent bookings
-	    public List<Booking> findRecentBookings(String email) {
+	}
+	public List<Booking> findRecentBookings(String email) 
+	{
 
 	        OpenConnection();
 	        transaction.begin();
@@ -131,10 +132,11 @@ public class UserRepository
 	        closeConnection();
 
 	        return list;
-	    }
+	}
 	
-	 // Upcoming trips
-	    public int countUpcomingTrips(String email) {
+
+	public int countUpcomingTrips(String email) 
+	{
 
 	        OpenConnection();
 	        transaction.begin();
@@ -147,12 +149,11 @@ public class UserRepository
 
 	        transaction.commit();
 	        closeConnection();
-
 	        return count.intValue();
-	    }
+	}
 	
-	 // Total spent
-	    public double sumTotalPriceByUser(String email) {
+	public double sumTotalPriceByUser(String email) 
+	{
 
 	        OpenConnection();
 	        transaction.begin();
@@ -167,10 +168,11 @@ public class UserRepository
 	        closeConnection();
 
 	        return total != null ? total : 0;
-	    }
+	}
 	    
-	 // Total trips
-	    public int countBookingsByUser(String email) {
+
+	public int countBookingsByUser(String email) 
+	{
 
 	        OpenConnection();
 	        transaction.begin();
@@ -185,7 +187,7 @@ public class UserRepository
 	        closeConnection();
 
 	        return count.intValue();
-	    }
+	}
 	    
 
 }
