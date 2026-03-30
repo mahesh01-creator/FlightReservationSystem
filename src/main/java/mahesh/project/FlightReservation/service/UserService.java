@@ -29,10 +29,7 @@ public class UserService
 		
 	}
 
-//	public List<Booking> getBookingsByUser(String email) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+
 	public User getUserByEmail(String email){
         return repo.findByEmail(email);
     }
